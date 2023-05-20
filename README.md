@@ -18,7 +18,7 @@ This demonstration can send strings to a classic DECtalk or DECtalk Express, DEC
 
 You will need a real KIM-1 with some sort of TTY interface such as Bob Applegate/CorshamTech's KIM I/O card. It will fit into the base 1K of RAM. To hear speech, you'll need a real DECtalk or DECtalk Express, or something that emulates such a device over the serial connection at 9600 baud.
 
-1. Install [KIMup](/classilla/kimup) to send files to your KIM-1 over your serial interface.
+1. Install [KIMup](https://github.com/classilla/kimup) to send files to your KIM-1 over your serial interface.
 2. Install [`xa65`](http://www.floodgap.com/retrotech/xa65/), a 6502 cross-assembler. Many Unix distros offer it as a package.
 3. (Optional) Ensure `minicom` is on your system as a test.
 4. To see the sequences in `minicom`, do `make test`. Otherwise, `make` or `make run` will assemble and upload it to your KIM with KIMup, and automatically start the program.
