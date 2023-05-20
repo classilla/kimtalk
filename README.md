@@ -30,7 +30,7 @@ You can change the strings in `words.xa`. If you need to relocate it in memory f
 
 If you want to use the 9600bps string sender, you just call it with the zero-page pointer pointing to a string ending with the high bit set. After it reaches that character, it will send a comma and a line feed to force the DECtalk to speak. If you are using the routine as a general byte sender, you'll probably want to remove that code and alter the calling convention to send some sort of length (such as in A, X or Y). The string sender just fits into the 102 bytes of free RAM at `$1780`; you may need to change the starting address (and therefore `talker.xa`) to make it a longer routine or you will stomp on the KIM's system vectors.
 
-In `misc/` are a couple example bitbang routines that may be more applicable to general programs. They are KIM-specific, but easy to modify. See the blog post for what these do.
+In `misc/` are a couple example bitbang routines that may be more applicable to general programs. They are KIM-specific, but easy to modify. [See the blog post for what these do.](https://oldvcr.blogspot.com/2023/05/the-kim-1-that-sounds-like-stephen.html)
 
 ## Bug fixes only
 
