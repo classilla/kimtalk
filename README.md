@@ -12,9 +12,7 @@ KIMtalk is a demonstration of a 9600 baud serial transmission routine for the MO
 
 This demonstration can send strings to a classic DECtalk or DECtalk Express, DEC's two standalone hardware speech synthesizers, at a full (and for the Express, the only) supported rate of 9600bps -- something the regular KIM-1 can't do. With this demonstration, your KIM-1 can talk through the DECtalk.
 
-Hear for yourself:
-
-<iframe id="videocontainer" class="type-BLOGGER_UPLOADED" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="YouTube video player" src="https://www.youtube.com/embed/?autohide=1&amp;enablecastapi=0&amp;html5=1&amp;ps=blogger&amp;widget_referrer=https%3A%2F%2Foldvcr.blogspot.com%2F&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.blogger.com&amp;widgetid=1" width="1280" height="758" frameborder="0"></iframe>
+[Hear for yourself](https://oldvcr.blogspot.com/2023/05/the-kim-1-that-sounds-like-stephen.html); we uploaded three video clips.
 
 ## How to build
 
