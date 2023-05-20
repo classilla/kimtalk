@@ -1,0 +1,37 @@
+
+	* = $0000
+
+	; sends a string selected by the keypad.
+	; (c)2023 cameron kaiser. all rights reserved. bsd license.
+
+strsend	= $1780
+zp	= $f9
+key	= $ee
+dict	= $0300
+
+	cld
+top	jsr $1f6a
+	cmp #$15	; wait for key
+	beq *-5
+	sta key
+
+	; use keypad as index into dictionary
+	asl key
+	ldx key
+	lda dict,x
+	sta zp
+	lda dict+1,x
+	sta zp+1
+	jsr strsend
+
+	; keypad tends to bound, wait a bit between keys
+	ldy #3
+wait	lda #128
+	sta $1707
+	lda $1707
+	bpl *-5
+	dey
+	bne wait
+
+	jmp top
+

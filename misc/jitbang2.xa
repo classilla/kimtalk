@@ -1,0 +1,94 @@
+        * = $0000
+
+ch      = $fe
+cch     = $1780
+
+        lda #$41
+        sta cch
+
+        cld
+        sei
+        lda #0
+        sta $1741
+        lda #$3f
+        sta $1743
+        lda #7
+        sta $1742
+
+aaaa    lda cch
+        and #$0f
+        ora #$40
+        jsr send
+        inc cch
+        jmp aaaa
+
+send    sta ch
+        ldx #8
+        ldy #0
+
+FACTOR = (b1-b0)
+
+        ; "JIT" the loop
+        ; somewhat adapted from KIM outch @ $1ea0
+sendb   lsr ch
+        bcc send0
+send1   lda #$09
+        sta b0,y
+        lda #$01
+        sta b0+1,y
+        jmp sendn
+send0   lda #$29
+        sta b0,y
+        lda #$fe
+        sta b0+1,y
+sendn   tya
+        clc
+        adc #FACTOR
+        tay
+        dex
+        bne sendb
+
+        ; send the bit
+
+COUNT=18
+#define WAIT ldy #COUNT:dey:bne *-1
+#define BIT0 lda $1742:and #$fe:sta $1742:WAIT
+#define BIT1 lda $1742:ora #$01:sta $1742:WAIT
+
+        ; start bit
+        BIT0
+
+;---------------------------------
+        ; 1
+b0 = *+3
+        BIT1
+
+b1 = *+3
+        ; 2
+        BIT0
+
+        ; 4
+        BIT0
+
+        ; 8
+        BIT0
+
+;---------------------------------
+
+        ; 16
+        BIT0
+
+        ; 32
+        BIT0
+
+        ; 64
+        BIT1
+
+        ; 128
+        BIT0
+;---------------------------------
+
+        ; stop bit
+        BIT1
+        rts
+

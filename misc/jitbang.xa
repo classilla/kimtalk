@@ -1,0 +1,58 @@
+        * = $0000
+
+        cld
+        sei
+        lda #0
+        sta $1741
+        lda #$3f
+        sta $1743
+        lda #7
+        sta $1742
+        
+        jsr send
+        jmp *-3
+        
+send
+
+COUNT=18
+#define WAIT ldy #COUNT:dey:bne *-1
+#define BIT0 lda $1742:and #$fe:sta $1742:WAIT
+#define BIT1 lda $1742:ora #$01:sta $1742:WAIT
+
+        ; start bit
+        BIT0
+
+;---------------------------------
+        ; 1
+        BIT1
+
+        ; 2
+        BIT0
+
+        ; 4
+        BIT0
+
+        ; 8
+        BIT0
+
+;---------------------------------
+
+        ; 16
+        BIT0
+
+        ; 32
+        BIT0
+
+        ; 64
+        BIT1
+
+        ; 128
+        BIT0
+;---------------------------------
+
+        ; stop bit
+        BIT1
+        WAIT
+	WAIT
+        rts
+

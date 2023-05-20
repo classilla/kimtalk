@@ -1,0 +1,46 @@
+
+	* = $0300
+
+dict	.word w00
+	.word w01
+	.word w02
+	.word w03
+	.word w04
+	.word w05
+	.word w06
+	.word w07
+	.word w08
+	.word w09
+	.word w0a
+	.word w0b
+	.word w0c
+	.word w0d
+	.word w0e
+	.word w0f
+	.word w10
+	.word w11
+	.word w12
+	.word w13
+	.word w14
+
+w00	.asc "HELL", "O" | 128
+w01	.asc "I" | 128
+w02	.asc "GOODBY", "E" | 128
+w03	.asc "A", "M" | 128
+w04	.asc "A" | 128
+w05	.asc "A", "N" | 128
+w06	.asc "TH", "E" | 128
+w07	.asc "LIK", "E" | 128
+w08	.asc "CA", "N" | 128
+w09	.asc "TAL", "K" | 128
+w0a	.asc "COSMOLOG", "Y" | 128
+w0b	.asc "BLACK HOLE", "S" | 128
+w0c	.asc "KI", "M" | 128
+w0d	.asc "WIT", "H" | 128
+w0e	.asc "DECTAL", "K" | 128
+w0f	.asc "KILOBYT", "E" | 128
+w10	.asc "O", "F" | 128
+w11	.asc "MEMOR", "Y" | 128
+w12	.asc "MEGAHERT", "Z" | 128
+w13	.asc "ON", "E" | 128
+w14	.asc "AN", "D" | 128
